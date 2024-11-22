@@ -1,3 +1,4 @@
+
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response)=>{
 
@@ -18,12 +19,7 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
 });
 
 
-function dadyDiv() {
-    const divBox = document.createElement("div");
-    divBox.setAttribute("class","divBox");
 
-    
-}
 function createTitle() {
     for (let i = 0; i < data.length; i++) {
         
