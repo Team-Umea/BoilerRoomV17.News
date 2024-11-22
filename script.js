@@ -1,4 +1,6 @@
-let divContainer = document.getElementById("divContainer")
+let divContainer = document.getElementById("divContainer");
+const searchInput = document.getElementById("searchInput");
+let allResults = [];
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response) => {
     if (!response.ok) {
@@ -8,9 +10,8 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
     }
 })
 .then((data) => {
-    const results = data.response.results;
-    displayNews(results);
-    render()
+    allResults = data.response.results;
+    displayNews(allResults);
 })
 .catch((error) => {
     console.error("u got ERROR sir", error);
@@ -18,7 +19,7 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
 
 
 function displayNews(arr) {
-
+    divContainer.innerHTML = "";
 
 arr.forEach((newsItem, index) => {
 {
@@ -46,7 +47,15 @@ arr.forEach((newsItem, index) => {
 
 });
 }
-
+function searchfunction() {
+    const searchNews = searchInput.value.toLowerCase();
+    const filterSearch = allResults.filter(newsItem =>
+        newsItem.sectionId.toLowerCase().includes(searchNews)
+      )
+      displayNews(filterSearch)
+      
+}
+searchInput.addEventListener("input", searchfunction);
 function render() {
    divContainer = "";
 }
