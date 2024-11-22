@@ -1,5 +1,6 @@
 let divContainer = document.getElementById("divContainer");
 const searchInput = document.getElementById("searchInput");
+
 let allResults = [];
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response) => {
@@ -29,6 +30,7 @@ arr.forEach((newsItem, index) => {
     newsTitle.setAttribute("class","newsTitle")
     const newsDescription = document.createElement("p");
     const timeForCreation = document.createElement("p");
+    const liBox = document.createElement("li");
     const linkToArticle = document.createElement("a");
 
     newsTitle.innerText = newsItem.sectionId;
@@ -42,11 +44,18 @@ arr.forEach((newsItem, index) => {
     newsBox.appendChild(newsTitle);
     newsBox.appendChild(newsDescription);
     newsBox.appendChild(timeForCreation);
-    newsBox.appendChild(linkToArticle);
+    newsBox.appendChild(liBox)
+    liBox.appendChild(linkToArticle);
+    
 }
 
+
 });
+console.log(divContainer);
+
 }
+
+
 function searchfunction() {
     const searchNews = searchInput.value.toLowerCase();
     const filterSearch = allResults.filter(newsItem =>
@@ -56,6 +65,3 @@ function searchfunction() {
       
 }
 searchInput.addEventListener("input", searchfunction);
-function render() {
-   divContainer = "";
-}
