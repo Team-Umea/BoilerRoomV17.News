@@ -6,8 +6,7 @@ const newsBox4 = document.getElementById("box4");
 const newsBox5 = document.getElementById("box5");
 const newsBox6 = document.getElementById("box6");
 const newsBox7 = document.getElementById("box7");
-const newsBox8 = document.getElementById("box8");
-const newsBox9 = document.getElementById("box9");
+
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response)=>{
 
