@@ -11,7 +11,7 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
     }
 })
 .then((data) => {
-    console.log("data", data.response.results[0]);
+    console.log("data", data.response.results);
 })
 .catch((error) => {
     console.error("u got ERROR sir", error);
@@ -19,6 +19,9 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
 
 
 function dadyDiv() {
+    const divBox = document.createElement("div");
+    divBox.setAttribute("class","divBox");
+
     
 }
 function createTitle() {
