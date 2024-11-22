@@ -4,7 +4,11 @@
     font-family: 'Courier New', Courier, monospace;
 
 }
-
+section {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    
+}
 .divBox {
     background-color: red;
     margin: 20px;

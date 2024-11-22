@@ -9,7 +9,6 @@ const newsBox7 = document.getElementById("box7");
 
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response)=>{
-
     if (!response.ok) {
         throw new Error("ERROR!!");
         
@@ -29,13 +28,10 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
     functionIndex5(data.response.results)
     functionIndex6(data.response.results)
     functionIndex7(data.response.results)
-
 })
 .catch((error) => {
     console.error("u got ERROR sir", error);
 });
-
-
 
 function functionIndex0(arr) {
     for (let i = 0; i < 1; i++) {
