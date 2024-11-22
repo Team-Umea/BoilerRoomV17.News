@@ -13,6 +13,8 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
 .then((data) => {
     allResults = data.response.results;
     displayNews(allResults);
+    console.log(allResults);
+    
 })
 .catch((error) => {
     console.error("u got ERROR sir", error);
@@ -32,20 +34,27 @@ arr.forEach((newsItem, index) => {
     const timeForCreation = document.createElement("p");
     const liBox = document.createElement("li");
     const linkToArticle = document.createElement("a");
+    const favoriteButton = document.createElement("button")
 
     newsTitle.innerText = newsItem.sectionId.toUpperCase();
-    newsDescription.innerText = newsItem.webTitle;
-    timeForCreation.innerText = newsItem.webPublicationDate
+    newsDescription.innerText = `Breaking News : ${newsItem.webTitle}`;
+    timeForCreation.innerText = `Published Date : ${newsItem.webPublicationDate}`;
     linkToArticle.innerText = "Read more";
     linkToArticle.href = newsItem.webUrl;
     linkToArticle.target = "_blank"; 
+    favoriteButton.innerText = "Add To Favorites"
 
+    favoriteButton.addEventListener("click", function () {
+    
+    
+    })
     divContainer.appendChild(newsBox);
     newsBox.appendChild(newsTitle);
     newsBox.appendChild(newsDescription);
     newsBox.appendChild(timeForCreation);
     newsBox.appendChild(liBox)
     liBox.appendChild(linkToArticle);
+    newsBox.appendChild(favoriteButton)
     
 }
 
@@ -54,7 +63,9 @@ arr.forEach((newsItem, index) => {
 console.log(divContainer);
 
 }
-
+function addToLocalStorage() {
+    localStorage.setItem("", "")
+}
 
 function searchfunction() {
     const searchNews = searchInput.value.toLowerCase();
