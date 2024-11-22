@@ -4,3 +4,8 @@
     font-family: 'Courier New', Courier, monospace;
 
 }
+
+.divBox {
+    background-color: red;
+    margin: 20px;
+}
