@@ -1,4 +1,4 @@
-fetch("https://newsapi.org/v2/everything?q=Apple&from=2024-11-22&sortBy=popularity&apiKey=40cf19549c954aabbf7a9e4c3dd08677")
+fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response)=>{
 
     if (!response.ok) {
@@ -7,12 +7,39 @@ fetch("https://newsapi.org/v2/everything?q=Apple&from=2024-11-22&sortBy=populari
     } else {
         console.log("response: ",response);
         
-        response.json()
+       return response.json()
     }
 })
 .then((data) => {
-    console.log("data", data);
+    console.log("data", data.response.results[0]);
 })
 .catch((error) => {
     console.error("u got ERROR sir", error);
 });
+
+
+function dadyDiv() {
+    
+}
+function createTitle() {
+    for (let i = 0; i < data.length; i++) {
+        
+        
+    }
+}
+function creationDate() {
+    
+}
+function createPTaggs() {
+    
+}
+function createDescription() {
+    
+}
+function createLiElement() {
+    
+}
+function render() {
+    
+}
+
