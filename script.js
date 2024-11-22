@@ -1,6 +1,5 @@
 let divContainer = document.getElementById("divContainer");
 const searchInput = document.getElementById("searchInput");
-
 let allResults = [];
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
 .then((response) => {
@@ -24,17 +23,19 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
 function displayNews(arr) {
     divContainer.innerHTML = "";
 
-arr.forEach((newsItem, index) => {
+arr.forEach((newsItem) => {
+
 {
-    const newsBox = document.createElement('div')
-    newsBox.setAttribute("class" ,"divBox")
+
+    const newsBox = document.createElement('div');
+    newsBox.setAttribute("class" ,"divBox");
     const newsTitle = document.createElement("h3");
-    newsTitle.setAttribute("class","newsTitle")
+    newsTitle.setAttribute("class","newsTitle");
     const newsDescription = document.createElement("p");
     const timeForCreation = document.createElement("p");
     const liBox = document.createElement("li");
     const linkToArticle = document.createElement("a");
-    const favoriteButton = document.createElement("button")
+    const favoriteButton = document.createElement("button");
 
     newsTitle.innerText = newsItem.sectionId.toUpperCase();
     newsDescription.innerText = `Breaking News : ${newsItem.webTitle}`;
@@ -44,10 +45,6 @@ arr.forEach((newsItem, index) => {
     linkToArticle.target = "_blank"; 
     favoriteButton.innerText = "Add To Favorites"
 
-    favoriteButton.addEventListener("click", function () {
-    
-    
-    })
     divContainer.appendChild(newsBox);
     newsBox.appendChild(newsTitle);
     newsBox.appendChild(newsDescription);
@@ -57,14 +54,8 @@ arr.forEach((newsItem, index) => {
     newsBox.appendChild(favoriteButton)
     
 }
-
-
 });
-console.log(divContainer);
 
-}
-function addToLocalStorage() {
-    localStorage.setItem("", "")
 }
 
 function searchfunction() {
