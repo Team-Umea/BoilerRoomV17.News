@@ -4,18 +4,45 @@
     font-family: 'Courier New', Courier, monospace;
 
 }
+header{
+    background-color:burlywood;
+}
+header h1 {
+    text-align: center;
+}
+#searchInput {
+    display: flex;
+    justify-content: center;
+}
 .divBox{
-    background-color: red;
+    background-color: beige;
     margin: 10px;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
 }
 .newsTitle {
-    background-color: green;
+    background-color: bisque;
+    color: rgb(217, 136, 15);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 main {
-    background-color: blue;
+    background-color: rgb(71, 19, 19);
     height: 100vh;
 }
 section {
     display: grid;
     grid-template-columns: repeat(4,1fr);
+}
+li{
+    list-style-type: none;
+}
+a {
+    color: red;
+}
+p {
+    padding: 7px;
+    color: black;
 }

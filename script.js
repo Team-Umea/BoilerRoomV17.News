@@ -33,7 +33,7 @@ arr.forEach((newsItem, index) => {
     const liBox = document.createElement("li");
     const linkToArticle = document.createElement("a");
 
-    newsTitle.innerText = newsItem.sectionId;
+    newsTitle.innerText = newsItem.sectionId.toUpperCase();
     newsDescription.innerText = newsItem.webTitle;
     timeForCreation.innerText = newsItem.webPublicationDate
     linkToArticle.innerText = "Read more";
