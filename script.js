@@ -1,11 +1,8 @@
-<<<<<<< Updated upstream
-console.log('Hello');
-=======
 let divContainer = document.getElementById("divContainer");
 const searchInput = document.getElementById("searchInput");
 let allResults = [];
 
-// Hämta nyheter från API
+
 fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08")
     .then((response) => {
         if (!response.ok) {
@@ -23,7 +20,7 @@ fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-b
     console.error("u got ERROR sir", error);
 });
 
-// Visa nyheterna på sidan
+
 function displayNews(arr) {
 divContainer.innerHTML = "";
 
@@ -47,7 +44,7 @@ arr.forEach((newsItem) => {
     linkToArticle.target = "_blank";
     favoriteButton.innerText = "Add To Favorites";
 
-    // Event listener för favoritknapp
+
     favoriteButton.addEventListener("click", () => addToFavorites(newsItem));
 
     divContainer.appendChild(newsBox);
@@ -87,4 +84,3 @@ function searchfunction() {
 searchInput.addEventListener("input", searchfunction);
 
 
->>>>>>> Stashed changes
