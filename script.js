@@ -39,7 +39,7 @@ arr.forEach((newsItem) => {
 
     newsTitle.innerText = newsItem.sectionId.toUpperCase();
     newsDescription.innerText = `Breaking News : ${newsItem.webTitle}`;
-    timeForCreation.innerText = `Published Date : ${new Date(newsItem.webPublicationDate).toLocaleString()}`;
+    timeForCreation.innerText = `Published : ${new Date(newsItem.webPublicationDate).toLocaleString()}`;
     linkToArticle.innerText = "Read more";
     linkToArticle.href = newsItem.webUrl;
     linkToArticle.target = "_blank"; 
