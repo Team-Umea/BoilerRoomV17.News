@@ -18,9 +18,8 @@ header h1 {
     background-color: beige;
     margin: 10px;
     text-align: center;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    
+    border-radius: 10px;
+    padding: 1rem;
 }
 .newsTitle {
     background-color: bisque;
