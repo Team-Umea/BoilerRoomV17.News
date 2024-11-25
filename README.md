@@ -1,15 +1,9 @@
-API-nyckel: 40cf19549c954aabbf7a9e4c3dd08677
+Välkommen till NWN!
 
-// GET https://newsapi.org/v2/everything?q=Apple&from=2024-11-22&sortBy=popularity&apiKey=API_KEY
+Vi har valt att skapa en nyhetsaggregator med hjälp av dagstidningen “The Guardian”:s API.
+På sidan hittar du 10 nyhetsartiklar som hämtas från API:n.
+Längst upp finner du artikelns titel, för att sedan läsa en snabb beskrivning av artikelns innehåll.
+Längst ner hittar du först artikelns publiceringsdatum och tid, sedan undertill en länk till att läsa hela artikeln på “The Guardian”:s hemsida.
 
-
-
-
-
-The Guardian Open Platform:
-A new key has been created for you: 022e2d96-2cf9-421e-9b66-bc1ac2780e08
-
-
-New york times:
-
-API: a9gTn2C71NQBedCyFhFG41nLOr1CbkJt
+Vi har även en sök/filter funktion längst upp på sidan där du enkelt börjar skriva någon av de titlar till artiklarna som finns, tex: “World” för att endast visa “World” artiklar.
+Samt en "Add To Favorites" funktion där du kan spara artiklar genom Local Storage.
