@@ -36,9 +36,15 @@ async function fetchFromNewsAPI() {
 
 
 async function fetchFromNewYorkTimes() {
-    try {
-        const response = await fetch(newYorkApi)
-        if (!response.ok) {
+        try {     
+            const response = await fetch(newYorkApi);
+            if (!response.ok) {
+                errorHandle(response);
+            }
+            const data = await response.json()
+            console.log(data);
+            
+        } catch (error) {
             errorHandle(response);
         }
         const data = await response.json();
