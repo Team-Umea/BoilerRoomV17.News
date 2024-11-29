@@ -1,6 +1,146 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+css
 
+Copy
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0d0d0d;
+    color: #eaeaea;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: url('https://your-background-image-url.com'); /* Optional: Add a subtle background image */
+    background-size: cover;
+}
+
+header {
+    background: linear-gradient(135deg, #4a90e2, #9013fe);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #eaeaea;
+    transition: background-color 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+#divContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.BoxNews {
+    background-color: rgba(34, 34, 34, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.BoxNews::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0.2;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.BoxNews:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.BoxNews:hover::before {
+    opacity: 0.4;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin: 0 0 10px;
+    text-shadow: 0 0 5px #ffffff;
+}
+
+p {
+    color: #ccc;
+    margin: 10px 0;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 10px 0;
+    filter: drop-shadow(0 0 5px #ffffff);
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s;
+    z-index: 0;
+}
+
+a:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+a:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+    color: #ffffff;
+    z-index: 1;
 }
