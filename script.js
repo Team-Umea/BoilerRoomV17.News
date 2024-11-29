@@ -35,18 +35,17 @@ async function fetchFromNewsAPI() {
 
 
 
-
 async function fetchFromNewYorkTimes() {
-        try {     
-            const response = await fetch(newYorkApi);
-            const data = await response.json()
-        
-            console.log(data);
-            
-        } catch (error) {
+    try {
+        const response = await fetch(newYorkApi)
+        if (!response.ok) {
             errorHandle(response);
-            
         }
+        const data = await response.json();
+        return data; 
+    } catch (error) {
+        console.error("Error fetching News API data:", error.message);
+    }
 }
 
 
@@ -70,16 +69,15 @@ async function displayNews() {
 
 
 function createNews(guardianData, newsData, newYorkData) {
-    console.log(guardianData);
-    console.log(newsData);
-    console.log(newYorkData)
 
     let dataSecond = newsData.articles;
-    let guardianFirst = guardianData.results;
+    let guardianFirst = guardianData.response.results;
+    let newYorkThird = newYorkData.response.docs;
+
 
     console.log(dataSecond);
-
-
+    console.log(guardianFirst);
+    console.log(newYorkThird);
 
 }
 
@@ -117,6 +115,4 @@ function errorHandle(response) {
 }
 
 displayNews();
-
-
 
