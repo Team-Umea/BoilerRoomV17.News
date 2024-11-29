@@ -1,6 +1,11 @@
+const guardianApi = "https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08";
+const newsApi = "https://newsapi.org/v2/everything?q=Apple&from=2024-11-22&sortBy=popularity&apiKey=40cf19549c954aabbf7a9e4c3dd08677";
+const newYorkApi = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=a9gTn2C71NQBedCyFhFG41nLOr1CbkJt";
+
+
 async function fetchFromGuardianAPI() {
     try {
-        const response = await fetch("https://content.guardianapis.com/search?api-key=022e2d96-2cf9-421e-9b66-bc1ac2780e08");
+        const response = await fetch(guardianApi);
         if (!response.ok) {
             errorHandle(response);
         }
@@ -9,13 +14,15 @@ async function fetchFromGuardianAPI() {
     } catch (error) {
         console.error("Error fetching Guardian API data:", error.message);
     }
-}
+
+    
+    }
 
 
 
 async function fetchFromNewsAPI() {
     try {
-        const response = await fetch("https://newsapi.org/v2/everything?q=Apple&from=2024-11-22&sortBy=popularity&apiKey=40cf19549c954aabbf7a9e4c3dd08677");
+        const response = await fetch(newsApi)
         if (!response.ok) {
             errorHandle(response);
         }
@@ -31,10 +38,7 @@ async function fetchFromNewsAPI() {
 
 async function fetchFromNewYorkTimes() {
         try {     
-            const response = await fetch("https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=a9gTn2C71NQBedCyFhFG41nLOr1CbkJt");
-            if (!response.ok) {
-                errorHandle(response);
-            }
+            const response = await fetch(newYorkApi);
             const data = await response.json()
             console.log(data);
             
@@ -64,13 +68,15 @@ async function displayNews() {
 }
 
 
-function createNews(guardianData, newsData) {
+function createNews(guardianData, newsData, newYorkData) {
     console.log(guardianData);
     console.log(newsData);
+    console.log(newYorkData)
 
     let dataSecond = newsData.articles;
     let guardianFirst = guardianData.results;
 
+    console.log(dataSecond);
 
 
 
@@ -110,7 +116,6 @@ function errorHandle(response) {
 }
 
 displayNews();
-
 
 
 
