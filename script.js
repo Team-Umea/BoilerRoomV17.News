@@ -105,11 +105,10 @@ function createNews(guardianData, newsData, newYorkData) {
         newsContainer.appendChild(boxNews);
         boxNews.appendChild(newsTitle);
         boxNews.appendChild(newsContent);
-        boxNews.appendChild(publishedAt);
-        boxNews.appendChild(author);
         boxNews.appendChild(newsImg);
         boxNews.appendChild(linkUrl);
-        
+        boxNews.appendChild(author);
+        boxNews.appendChild(publishedAt);
         
     });
 
@@ -168,10 +167,10 @@ function displaySearchResults(articles) {
         newsContainer.appendChild(boxNews);
         boxNews.appendChild(newsTitle);
         boxNews.appendChild(newsContent);
-        boxNews.appendChild(publishedAt);
-        boxNews.appendChild(author);
         if (article.urlToImage) boxNews.appendChild(newsImg);
         boxNews.appendChild(linkUrl);
+        boxNews.appendChild(publishedAt);
+        boxNews.appendChild(author);
     });
 }
 

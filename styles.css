@@ -66,6 +66,7 @@ input[type="text"]:focus {
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 #boxNews::before {
@@ -95,7 +96,6 @@ img {
 }
 
 a {
-    margin: 10px;
     padding: 10px; 
     background-color: #003f88;
     color: white;
