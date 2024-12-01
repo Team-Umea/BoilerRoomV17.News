@@ -97,10 +97,10 @@ function createNews(guardianData, newsData, newYorkData) {
         const newsImg = document.createElement('img');
         const linkUrl = document.createElement('a')
 
-
+        boxNews.setAttribute('id', 'boxNews');
         newsTitle.innerText = valueArticles.title;
         newsContent.innerText = valueArticles.description;
-        publishedAt.innerText = valueArticles.publishedAt;
+        publishedAt.innerText = `Published: ${new Date(valueArticles.publishedAt).toLocaleString()}`;
         author.innerText = valueArticles.author;
         newsImg.src = valueArticles.urlToImage;
         linkUrl.href = valueArticles.url;
@@ -162,9 +162,10 @@ function displaySearchResults(articles) {
         const newsImg = document.createElement('img');
         const linkUrl = document.createElement('a');
 
+        boxNews.setAttribute('id', 'boxNews');
         newsTitle.innerText = article.title;
         newsContent.innerText = article.description || "No description available.";
-        publishedAt.innerText = `Published: ${article.publishedAt || "N/A"}`;
+        publishedAt.innerText = `Published: ${new Date(article.publishedAt).toLocaleString()}`;
         author.innerText = `Author: ${article.author || "Unknown"}`;
         newsImg.src = article.urlToImage || "placeholder.jpg";
         linkUrl.href = article.url;
