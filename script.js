@@ -3,7 +3,7 @@ const newsApi = "https://newsapi.org/v2/top-headlines?country=us&apiKey=40cf1954
 const newYorkApi = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=a9gTn2C71NQBedCyFhFG41nLOr1CbkJt";
 
 
-const NewsContainer = document.getElementById('divContainer');
+const newsContainer = document.getElementById('divContainer');
 
 async function fetchFromGuardianAPI() {
     try {
@@ -85,16 +85,16 @@ function createNews(guardianData, newsData, newYorkData) {
     let articlesWithImages = dataSecond.filter(dataSecond => dataSecond.urlToImage);
     console.log(articlesWithImages);
 
-    let maxValueImg = 5;
+    let maxValueImg = 10;
 
 
     articlesWithImages.slice(0, maxValueImg).forEach(valueArticles => {
-        const BoxNews = document.createElement('div');
+        const boxNews = document.createElement('div');
         const newsTitle = document.createElement('h2');
         const newsContent = document.createElement('p');
         const publishedAt = document.createElement('p');
         const author = document.createElement('p');
-        const NewsImg = document.createElement('img');
+        const newsImg = document.createElement('img');
         const linkUrl = document.createElement('a')
 
 
@@ -102,33 +102,94 @@ function createNews(guardianData, newsData, newYorkData) {
         newsContent.innerText = valueArticles.description;
         publishedAt.innerText = valueArticles.publishedAt;
         author.innerText = valueArticles.author;
-        NewsImg.src = valueArticles.urlToImage;
+        newsImg.src = valueArticles.urlToImage;
         linkUrl.href = valueArticles.url;
         linkUrl.target = "_blank";
         linkUrl.innerText = "Read more";
 
 
         
-        NewsContainer.appendChild(BoxNews);
-        BoxNews.appendChild(newsTitle);
-        BoxNews.appendChild(newsContent);
-        BoxNews.appendChild(publishedAt);
-        BoxNews.appendChild(author);
-        BoxNews.appendChild(NewsImg);
-        BoxNews.appendChild(linkUrl);
+        newsContainer.appendChild(boxNews);
+        boxNews.appendChild(newsTitle);
+        boxNews.appendChild(newsContent);
+        boxNews.appendChild(publishedAt);
+        boxNews.appendChild(author);
+        boxNews.appendChild(newsImg);
+        boxNews.appendChild(linkUrl);
         
         
     });
 
+// SEARCH
+async function searchNews(query) {
+    const searchApiUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&apiKey=40cf19549c954aabbf7a9e4c3dd08677`;
 
-
-
-
-
-
-
+    try {
+        const response = await fetch(searchApiUrl);
+        if (!response.ok) {
+            errorHandle(response);
+        }
+        const data = await response.json();
+        displaySearchResults(data.articles);
+    } catch (error) {
+        console.error("Error fetching search results:", error.message);
+    }
 }
 
+
+function displaySearchResults(articles) {
+    newsContainer.innerHTML = "";
+
+    if (!articles || articles.length === 0) {
+        newsContainer.innerHTML = "<p>No articles found for the search term.</p>";
+        return;
+    }
+
+    let articlesWithImages = articles.filter(article => article.urlToImage && article.title && article.description);
+
+    if (articlesWithImages.length === 0) {
+        NewsContainer.innerHTML = "<p>No articles with images available for the search term.</p>";
+        return;
+    }
+
+    const maxResults = 10;
+    articlesWithImages.slice(0, maxResults).forEach((article) => {
+        const boxNews = document.createElement('div');
+        const newsTitle = document.createElement('h2');
+        const newsContent = document.createElement('p');
+        const publishedAt = document.createElement('p');
+        const author = document.createElement('p');
+        const newsImg = document.createElement('img');
+        const linkUrl = document.createElement('a');
+
+        newsTitle.innerText = article.title;
+        newsContent.innerText = article.description || "No description available.";
+        publishedAt.innerText = `Published: ${article.publishedAt || "N/A"}`;
+        author.innerText = `Author: ${article.author || "Unknown"}`;
+        newsImg.src = article.urlToImage || "placeholder.jpg";
+        linkUrl.href = article.url;
+        linkUrl.target = "_blank";
+        linkUrl.innerText = "Read more";
+
+        newsContainer.appendChild(boxNews);
+        boxNews.appendChild(newsTitle);
+        boxNews.appendChild(newsContent);
+        boxNews.appendChild(publishedAt);
+        boxNews.appendChild(author);
+        if (article.urlToImage) boxNews.appendChild(newsImg);
+        boxNews.appendChild(linkUrl);
+    });
+}
+
+document.getElementById('searchInput').addEventListener('input', (event) => {
+    const query = event.target.value.trim();
+    if (query) {
+        searchNews(query);
+    } else {
+        displayNews();
+    }
+});
+}
 
 function errorHandle(response) {
     switch (response.status) {
