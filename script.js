@@ -76,14 +76,7 @@ function createNews(guardianData, newsData, newYorkData) {
     let guardianFirst = guardianData.response.results;
     let newYorkThird = newYorkData.response.docs;
 
-
-    console.log(dataSecond);
-    console.log(guardianFirst);
-    console.log(newYorkThird);
-
-
     let articlesWithImages = dataSecond.filter(dataSecond => dataSecond.urlToImage);
-    console.log(articlesWithImages);
 
     let maxValueImg = 10;
 
