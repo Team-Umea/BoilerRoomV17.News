@@ -49,7 +49,6 @@ input[type="text"]:focus {
 #divContainer {
     display: flex;
     flex-direction: column;
-    justify-items: center;
     max-width: 900px;
     margin: auto;
     gap: 20px;
@@ -93,9 +92,19 @@ p {
 img {
     max-width: 100%;
     border-radius: 8px;
+    margin: 10px;
+}
+
+i {
+    margin: 1rem
+}
+
+b {
+    margin: 1rem;
 }
 
 a {
+    margin-right: 1rem;
     padding: 10px; 
     background-color: #003f88;
     color: white;

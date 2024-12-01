@@ -85,8 +85,8 @@ function createNews(guardianData, newsData, newYorkData) {
         const boxNews = document.createElement('div');
         const newsTitle = document.createElement('h2');
         const newsContent = document.createElement('p');
-        const publishedAt = document.createElement('p');
-        const author = document.createElement('p');
+        const publishedAt = document.createElement('i');
+        const author = document.createElement('b');
         const newsImg = document.createElement('img');
         const linkUrl = document.createElement('a')
 
@@ -149,8 +149,8 @@ function displaySearchResults(articles) {
         const boxNews = document.createElement('div');
         const newsTitle = document.createElement('h2');
         const newsContent = document.createElement('p');
-        const publishedAt = document.createElement('p');
-        const author = document.createElement('p');
+        const publishedAt = document.createElement('i');
+        const author = document.createElement('b');
         const newsImg = document.createElement('img');
         const linkUrl = document.createElement('a');
 
