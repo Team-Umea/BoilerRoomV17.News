@@ -181,6 +181,7 @@ document.getElementById('searchInput').addEventListener('input', (event) => {
         searchNews(query);
     } else {
         displayNews();
+        location.reload()
     }
 });
 }
